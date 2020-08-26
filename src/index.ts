@@ -1,4 +1,4 @@
-import { Observable, SubscribableOrPromise, Subscriber } from 'rxjs';
+import { Observable, Subscriber } from 'rxjs';
 
 // function cannot return multiple values
 function foo1() {
