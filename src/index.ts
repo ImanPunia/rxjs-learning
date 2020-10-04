@@ -45,4 +45,15 @@ const t = {
   
 def(t);
 
+function fromEvents(target: string, eventName : string ): Observable<unknown> {
+  return new Observable(( observer) => {
+       observer.next(target);
+       console.log("'i'm called");
+       return () =>  {
+           console.log('destroy');
+       }
+  })
+}
+
+fromEvents('Successfully', 'Typed')
 
