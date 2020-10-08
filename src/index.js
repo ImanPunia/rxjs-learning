@@ -27,7 +27,6 @@ var abc = new rxjs_1.Observable(function (x) {
 abc.subscribe(function (x) { return console.log("mapped with next function of subsriber", x); });
 //mapping of parameter passed to subscriber with registered callback in observable
 function def(a) {
-    debugger;
     a.next(1);
     a.error();
 }
@@ -36,3 +35,13 @@ var t = {
     error: function () { return console.log("error"); }
 };
 def(t);
+function fromEvents(target) {
+    return new rxjs_1.Observable(function (observer) {
+        observer.next(target);
+        console.log("'i'm called");
+        return function () {
+            console.log('destroy');
+        };
+    });
+}
+fromEvents('Successfully');

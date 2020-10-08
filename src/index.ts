@@ -33,7 +33,7 @@ abc.subscribe(x => console.log("mapped with next function of subsriber", x))
 
 
 //mapping of parameter passed to subscriber with registered callback in observable
-function def(a:any) {debugger;
+function def(a:any) {
   a.next(1);
   a.error();
 }
@@ -45,7 +45,7 @@ const t = {
   
 def(t);
 
-function fromEvents(target: string, eventName : string ): Observable<unknown> {
+function fromEvents(target: string ): Observable<unknown> {
   return new Observable(( observer) => {
        observer.next(target);
        console.log("'i'm called");
@@ -55,5 +55,5 @@ function fromEvents(target: string, eventName : string ): Observable<unknown> {
   })
 }
 
-fromEvents('Successfully', 'Typed')
+fromEvents('Successfully')
 

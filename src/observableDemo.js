@@ -6,7 +6,6 @@ observable1.subscribe(function (x) { return console.log(x); });
 observable1.subscribe(function (x) { return console.log('second', x); });
 function fromEvents(target, eventName) {
     return new rxjs_1.Observable(function (observer) {
-        debugger;
         observer.next(target);
         console.log("'i'm called");
         return function () {
